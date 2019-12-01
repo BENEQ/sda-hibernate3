@@ -4,7 +4,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(schema = "ksiegarnia", name = "film")
-@NamedQueries({@NamedQuery(name = "film.selectById", query = "SELECT n FROM Film n where n.id=:id"), @NamedQuery(name = "film.selectByRokprodukcji", query = "SELECT n FROM Film n where n.rokprodukcji=:rokprodukcji")})
+@NamedQueries({@NamedQuery(name = "film.selectById", query = "SELECT n FROM Film n where n.id=:id"),
+        @NamedQuery(name = "film.selectByNazwaFilmu", query = "SELECT n FROM Film n where n.nazwa_filmu=:nazwaFilmu"),
+        @NamedQuery(name = "film.selectByGatunekFilmu", query = "SELECT n FROM Film n where n.gatunek_filmu=:gatunekFilmu"),
+        @NamedQuery(name = "film.selectByRezyserFilmu", query = "SELECT n FROM Film n where n.rezyser_filmu=:rezyserFilmu"),
+        @NamedQuery(name = "film.selectByRokprodukcji", query = "SELECT n FROM Film n where n.rokprodukcji=:rokprodukcji")})
 public class Film {
 
     @Id

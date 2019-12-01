@@ -13,6 +13,7 @@ public class FilmDAO {
         session.close();
         return film;
     }
+
     public List<Film> createQueryAll() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         List<Film> filmy = session.createQuery("from Film", Film.class).getResultList();
@@ -36,10 +37,33 @@ public class FilmDAO {
         return film;
     }
 
-    public Film createNamedQueryByRokprodukcji(Integer rokprodukcji) {
+    public List<Film> createNamedQueryByNazwaFilmu(String nazwaFilmu) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Film film = session.createNamedQuery("film.selectByRokprodukcji", Film.class).setParameter("rokprodukcji", rokprodukcji).getSingleResult();
+        List<Film> film = session.createNamedQuery("film.selectByNazwaFilmu", Film.class).setParameter("nazwaFilmu", nazwaFilmu).getResultList();
         session.close();
         return film;
     }
+
+    public List<Film> createNamedQueryByGatunekFilmu(String gatunekFilmu) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        List<Film> film = session.createNamedQuery("film.selectByGatunekFilmu", Film.class).setParameter("gatunekFilmu", gatunekFilmu).getResultList();
+        session.close();
+        return film;
+    }
+
+    public List<Film> createNamedQueryByRokprodukcji(String rezyserFilmu) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        List<Film> film = session.createNamedQuery("film.selectByRezyserFilmu", Film.class).setParameter("rezyserFilmu", rezyserFilmu).getResultList();
+        session.close();
+        return film;
+    }
+
+    public List<Film> createNamedQueryByRokprodukcji(Integer rokprodukcji) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        List<Film> film = session.createNamedQuery("film.selectByRokprodukcji", Film.class).setParameter("rokprodukcji", rokprodukcji).getResultList();
+        session.close();
+        return film;
+    }
+
+
 }

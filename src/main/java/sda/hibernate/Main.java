@@ -23,7 +23,10 @@ public class Main {
 
         }
 
-        film1 = filmDAO.createNamedQueryByRokprodukcji(2001);
-        System.out.println(film1.getId() + " " + film1.getNazwa_filmu() + " " + film1.getGatunek_filmu() + " " + film1.getRezyser_filmu() + " " + film1.getRokprodukcji());
+        listaFilmow = filmDAO.createNamedQueryByRokprodukcji(2001);
+        for (Film film : listaFilmow) {
+            System.out.println(film.getId() + " " + film.getNazwa_filmu() + " " + film.getGatunek_filmu() + " " + film.getRezyser_filmu() + " " + film.getRokprodukcji());
+
+        }
     }
 }
